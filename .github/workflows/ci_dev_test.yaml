@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - 'develop'
-      - 'release'
+      - 'release/*'
 jobs:
   test:
     runs-on: ubuntu-latest
