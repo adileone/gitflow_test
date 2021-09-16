@@ -1,0 +1,16 @@
+on:
+  push:
+    branches:
+      - 'develop'
+      - 'release/*'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: TestActionDev
+        if: github.ref == 'refs/heads/develop'
+        run: echo 'pushed to develop'
+      - name: TestActionAcc
+        if: contains(github.ref,'refs/heads/release/')
+        run: echo 'pushed to UAT'
